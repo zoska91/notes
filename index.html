@@ -66,6 +66,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-expressJs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/notes/2019/07/10/expressJs/" class="article-date">
+  <time datetime="2019-07-10T15:01:22.000Z" itemprop="datePublished">2019-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/notes/2019/07/10/expressJs/">expressJs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Node-Express-js"><a href="#Node-Express-js" class="headerlink" title="Node - Express.js"></a>Node - Express.js</h1><h2 id="Nasluchiwanie-serwera"><a href="#Nasluchiwanie-serwera" class="headerlink" title="Nasłuchiwanie serwera"></a>Nasłuchiwanie serwera</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Server id listening at http://localhost:3000'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//na stronie głownej - "/"  wyświetli się</span></span><br><span class="line">app.get(<span class="string">'/'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hello!'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Medoty-req"><a href="#Medoty-req" class="headerlink" title="Medoty req"></a>Medoty req</h2><ul>
+<li>req.ip - sprawdzenie mojego ip</li>
+<li>req.ips - sprawdzenie ipków, przez które serwer się łączy</li>
+<li>req.method - jaka metoda została wykorzystania (post/get/put itd)</li>
+<li>req.url</li>
+<li>req.originalUrl - ścieżka przed modyfikacją</li>
+<li>req.path</li>
+<li>req.protocol - czy http czy https</li>
+<li>req.secure</li>
+</ul>
+<h2 id="parametry-adresu-URL"><a href="#parametry-adresu-URL" class="headerlink" title="parametry adresu URL"></a>parametry adresu URL</h2><p>przykład:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>Jestem linkiem!<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'Jakaś osoba'</span>;</span><br><span class="line"><span class="keyword">const</span> surname = <span class="string">'naziwsko'</span>;</span><br><span class="line"><span class="keyword">const</span> url = <span class="string">`http:/localhost:3000/?name=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(</span></span></span><br><span class="line"><span class="string"><span class="subst">  name</span></span></span><br><span class="line"><span class="string"><span class="subst">)&#125;</span>&amp;surname=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(surname)&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">document</span>.querySelector(<span class="string">'a'</span>);</span><br><span class="line">a.setAttribute(<span class="string">'href'</span>, url); <span class="comment">//dodaje href do linku z html'a</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zoska91.github.io/2019/07/10/expressJs/" data-id="cjxxdhvbp0000t4tn16o1e965" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/express-node/">express node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-webpack" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/notes/2019/06/25/webpack/" class="article-date">
@@ -157,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zoska91.github.io/2019/06/25/webpack/" data-id="cjxc9sgmb0000mctnbiow3f6g" class="article-share-link">Share</a>
+      <a data-url="https://zoska91.github.io/2019/06/25/webpack/" data-id="cjxxdhvbz0001t4tnc0wsmjwy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,15 +232,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/express-node/">express node</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/notes/tags/express-node/" style="font-size: 10px;">express node</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2019/06/">czerwiec 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2019/07/">lipiec 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2019/06/">czerwiec 2019</a></li></ul>
     </div>
   </div>
 
@@ -196,6 +265,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/notes/2019/07/10/expressJs/">expressJs</a>
+          </li>
         
           <li>
             <a href="/notes/2019/06/25/webpack/">Webpack</a>
