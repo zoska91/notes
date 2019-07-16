@@ -5,15 +5,20 @@
   
 
   
-  <title>Notes</title>
+  <title>expressJs | Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Notes">
-<meta property="og:url" content="https://zoska91.github.io/index.html">
+  <meta name="description" content="Node - Express.jsNasłuchiwanie serwera12345678910111213const express = require(&apos;express&apos;);const app = express();app.listen(3000, (req, res) =&amp;gt; &amp;#123;  console.log(&apos;Server id listening at http://loc">
+<meta name="keywords" content="express,nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="expressJs">
+<meta property="og:url" content="https://zoska91.github.io/2019/07/10/expressJs/index.html">
 <meta property="og:site_name" content="Notes">
+<meta property="og:description" content="Node - Express.jsNasłuchiwanie serwera12345678910111213const express = require(&apos;express&apos;);const app = express();app.listen(3000, (req, res) =&amp;gt; &amp;#123;  console.log(&apos;Server id listening at http://loc">
 <meta property="og:locale" content="pl">
+<meta property="og:updated_time" content="2019-07-16T19:09:01.889Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Notes">
+<meta name="twitter:title" content="expressJs">
+<meta name="twitter:description" content="Node - Express.jsNasłuchiwanie serwera12345678910111213const express = require(&apos;express&apos;);const app = express();app.listen(3000, (req, res) =&amp;gt; &amp;#123;  console.log(&apos;Server id listening at http://loc">
   
     <link rel="alternate" href="/notes/atom.xml" title="Notes" type="application/atom+xml">
   
@@ -64,111 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/notes/2019/07/16/mongodb/" class="article-date">
-  <time datetime="2019-07-16T19:05:35.000Z" itemprop="datePublished">2019-07-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/notes/2019/07/16/mongodb/">mongodb</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="mongo-db"><a href="#mongo-db" class="headerlink" title="mongo db"></a>mongo db</h1><h2 id="1-istalacja"><a href="#1-istalacja" class="headerlink" title="1. istalacja"></a>1. istalacja</h2><p><a href="https://www.mongodb.com" target="_blank" rel="noopener">pobierz mongoDB</a><br>-&gt; products -&gt; server mongodb</p>
-<h2 id="2-CMD"><a href="#2-CMD" class="headerlink" title="2. CMD"></a>2. CMD</h2><ul>
-<li>domyślnie:</li>
-</ul>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">cd</span> "C:\Program Files\MongoDB\Server\<span class="number">4</span>.<span class="number">0</span>\bin"</span><br><span class="line">&gt; mongo</span><br><span class="line"></span><br><span class="line">&gt; db.cars.insertOne(&#123;brand: 'Daewoo', model: 'Lanos'&#125;)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>cars - kolekcja</li>
-<li>dokumnet - z nich składa się kolekcja</li>
-</ul>
-<h3 id="szukanie"><a href="#szukanie" class="headerlink" title="- szukanie:"></a>- szukanie:</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.cars.<span class="built_in">find</span>()</span><br></pre></td></tr></table></figure>
-
-<h3 id="dodanie-wielu-dokumentow"><a href="#dodanie-wielu-dokumentow" class="headerlink" title="- dodanie wielu dokumentów:"></a>- dodanie wielu dokumentów:</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.cars.insertMany([&#123;brand: 'Polonez', model: 'Caro'&#125;, &#123;brand: 'Polonez', model: 'Caro Plus'&#125;])</span><br></pre></td></tr></table></figure>
-
-<h3 id="szukanie-po-parametrach"><a href="#szukanie-po-parametrach" class="headerlink" title="- szukanie po parametrach"></a>- szukanie po parametrach</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.clients.<span class="built_in">find</span>(&#123;active:true&#125;)</span><br><span class="line">&gt; db.clients.<span class="built_in">find</span>(&#123;name: 'Anna Kowalska'&#125;)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>id nie jest stringiem, więc trzeba szukać przez “ObjectID()”</li>
-</ul>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.clients.<span class="built_in">find</span>(&#123;_id: ObjectId('<span class="number">5</span>d2debb36b9c47ad112082ba')&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="parametry"><a href="#parametry" class="headerlink" title="- parametry"></a>- parametry</h3><p><strong>musi być “$“</strong></p>
-<ol>
-<li>gt - większy niż</li>
-<li>gte - większy lub równy</li>
-<li>lt - mniejszy niż</li>
-<li>lte - mniejszy lub równy</li>
-<li>in - jak w sql</li>
-<li>nin - jak w sql not in</li>
-</ol>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.clients.<span class="built_in">find</span>(&#123;age: &#123;$gt: <span class="number">30</span>, gl: <span class="number">40</span>&#125;&#125;)</span><br><span class="line">&gt; db.clients.<span class="built_in">find</span>(&#123;age: &#123;$lt: <span class="number">30</span>&#125;&#125;)</span><br><span class="line">&gt; db.clients.<span class="built_in">find</span>(&#123;age: &#123;$lte: <span class="number">50</span>&#125;&#125;)</span><br><span class="line">&gt; db.clients.<span class="built_in">find</span>(&#123;age: &#123;$<span class="keyword">in</span>: [<span class="number">45</span>, <span class="number">32</span>]&#125;&#125;)</span><br><span class="line">&gt; db.clients.<span class="built_in">find</span>(&#123;age: &#123;$nin: [<span class="number">45</span>, <span class="number">32</span>]&#125;&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="spojniki"><a href="#spojniki" class="headerlink" title="spójniki"></a>spójniki</h3><ol>
-<li>“,” - and</li>
-<li>$or - or</li>
-<li>$not</li>
-</ol>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.clients.<span class="built_in">find</span>(&#123; $or: [&#123; age: &#123;$lt:<span class="number">35</span>&#125; &#125;, &#123; active: true &#125;]&#125;)</span><br><span class="line">&gt; db.clients.<span class="built_in">find</span>(&#123;age: &#123;$<span class="keyword">not</span>: &#123;$gt: <span class="number">30</span>&#125;&#125;&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="aktualizowanie-danych"><a href="#aktualizowanie-danych" class="headerlink" title="- aktualizowanie danych"></a>- aktualizowanie danych</h3><p><em>db.clients.update({x}, {y})</em></p>
-<p><strong>x</strong> - np. id elementu - czyli jakie elementy chcemy zmienić<br><strong>y</strong> - co chcemy zmienić</p>
-<ol>
-<li>$set - aktualizuje komórkę - domyślnie tylko jedną</li>
-</ol>
-<p><em>db.clients.update({x}, {y}, {z})</em></p>
-<p>z - jest opcjonalne - ustawienia</p>
-<ol start="2">
-<li>multi: true - zaktualizuj wszystkie pasujące</li>
-</ol>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.clients.update(&#123;&#125;, &#123;$<span class="built_in">set</span>: &#123;active: true&#125;&#125;, &#123;multi: true&#125;)</span><br><span class="line">&gt; db.clients.update(&#123;age: &#123;$lt: <span class="number">30</span>&#125;&#125;, &#123;$<span class="built_in">set</span>: &#123;active:false&#125;&#125;, &#123;multi:true&#125;)</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>opcjonalnie można zrobić:</li>
-</ol>
-<ul>
-<li>updaneMany() - zamiast <em>multi:true</em></li>
-<li>updateOne()</li>
-</ul>
-<h3 id="usuwanie"><a href="#usuwanie" class="headerlink" title="usuwanie"></a>usuwanie</h3><p><em>db.clients.delete({x}, {y}, {z})</em></p>
-<ul>
-<li>można też: deleteMany / deleteOne</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;db.clients.deleteOne(&#123;&quot;_id&quot; : ObjectId(&quot;5d2debb36b9c47ad112082bb&quot;)&#125;)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zoska91.github.io/2019/07/16/mongodb/" data-id="cjy66xdlb0003n4tnjly3mpp1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/nodejs/">nodejs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-expressJs" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-expressJs" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/notes/2019/07/10/expressJs/" class="article-date">
   <time datetime="2019-07-10T15:01:22.000Z" itemprop="datePublished">2019-07-10</time>
@@ -181,8 +82,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/notes/2019/07/10/expressJs/">expressJs</a>
+    <h1 class="article-title" itemprop="name">
+      expressJs
     </h1>
   
 
@@ -294,114 +195,28 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-webpack" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/notes/2019/06/25/webpack/" class="article-date">
-  <time datetime="2019-06-25T19:38:02.000Z" itemprop="datePublished">2019-06-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/notes/2019/07/16/mongodb/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          mongodb
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/notes/2019/06/25/webpack/">Webpack</a>
-    </h1>
   
+    <a href="/notes/2019/06/25/webpack/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Webpack</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="0-Install"><a href="#0-Install" class="headerlink" title="0. Install"></a>0. Install</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack</span><br><span class="line">npm i webpack-cli -g</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-Entry"><a href="#1-Entry" class="headerlink" title="1. Entry"></a>1. Entry</h2><p>Create file index.js (default name) - should be in:</p>
-<p><strong><em>./src/index.js</em></strong></p>
-<p>Next create file<br><strong><em>webpack.config.js</em></strong></p>
-<p>In webpack.config.js:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./src/js/index.js'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-Output"><a href="#2-Output" class="headerlink" title="2. Output"></a>2. Output</h2><p>In file webpack.config.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./src/js/index.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">    filename: <span class="string">'script.js'</span> <span class="comment">//name of this file it's your choice</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-Loaders"><a href="#3-Loaders" class="headerlink" title="3. Loaders"></a>3. Loaders</h2><p>In file webpack.config.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./src/js/index.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'index.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [&#123; <span class="attr">test</span>: <span class="regexp">/\.txt$/</span>, <span class="attr">use</span>: <span class="string">'raw-loader'</span> &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-1-Style-loader-css-loader-and-sass-loader"><a href="#3-1-Style-loader-css-loader-and-sass-loader" class="headerlink" title="3.1 Style-loader, css-loader and sass-loader"></a>3.1 Style-loader, css-loader and sass-loader</h3><p><em>it doesn’t have to be .scss. You can use .css, .sass - your choice</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install style-loader --save-dev</span><br><span class="line">npm install --save-dev css-loader</span><br><span class="line">npm install sass-loader node-sass webpack --save-dev</span><br></pre></td></tr></table></figure>
-
-<p>In file webpack.config.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.scss$/</span>,</span><br><span class="line">  use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'sass-loader'</span>]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-2-File-loader"><a href="#3-2-File-loader" class="headerlink" title="3.2 File-loader"></a>3.2 File-loader</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install file-loader --save-dev</span><br></pre></td></tr></table></figure>
-
-<p>In file webpack.config.js</p>
-<p><em>you can use different opction in test</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.(png|jpe?g|gif|svg)$/</span>,</span><br><span class="line">  use: [</span><br><span class="line">    &#123;</span><br><span class="line">      loader: <span class="string">'file-loader'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-3-Babel-loader"><a href="#3-3-Babel-loader" class="headerlink" title="3.3 Babel-loader"></a>3.3 Babel-loader</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D babel-loader @babel/core @babel/preset-env webpack</span><br></pre></td></tr></table></figure>
-
-<p>In file webpack.config.js<br><em>you can also create .babelrc</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.m?js$/</span>,</span><br><span class="line">  exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">  use: &#123;</span><br><span class="line">    loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">    options: &#123;</span><br><span class="line">      presets: [<span class="string">'@babel/preset-env'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-4-Html-loader"><a href="#3-4-Html-loader" class="headerlink" title="3.4 Html-loader"></a>3.4 Html-loader</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D html-loader</span><br></pre></td></tr></table></figure>
-
-<p>In file webpack.config.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.(html)$/</span>,</span><br><span class="line">  use: &#123;</span><br><span class="line">    loader: <span class="string">'html-loader'</span>,</span><br><span class="line">    options: &#123;</span><br><span class="line">      attrs: [<span class="string">':data-src'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-Plugins"><a href="#4-Plugins" class="headerlink" title="4. Plugins"></a>4. Plugins</h2><p>In file webpack.config.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">      <span class="comment">// Definitions...</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-1-HtmlWebpackPlugin"><a href="#4-1-HtmlWebpackPlugin" class="headerlink" title="4.1 HtmlWebpackPlugin"></a>4.1 HtmlWebpackPlugin</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev html-webpack-plugin</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">  template: <span class="string">'src/index.html'</span>, <span class="comment">// where is your src index</span></span><br><span class="line">  title: <span class="string">'title'</span>, <span class="comment">// &lt;title&gt;&lt;/title&gt;</span></span><br><span class="line">  filename: <span class="string">'index.html'</span> <span class="comment">// output name</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-Server"><a href="#5-Server" class="headerlink" title="5. Server"></a>5. Server</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack-dev-server --save-dev</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: path.join(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">    compress: <span class="literal">true</span>,</span><br><span class="line">    port: <span class="number">9000</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>use:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node_modules/.bin/webpack-dev-server</span><br></pre></td></tr></table></figure>
-
-<h2 id="End-info"><a href="#End-info" class="headerlink" title="End info"></a>End info</h2><h3 id="1-check-paths"><a href="#1-check-paths" class="headerlink" title="1. check paths!"></a>1. check paths!</h3><h3 id="2-in-package-json-add"><a href="#2-in-package-json-add" class="headerlink" title="2. in package.json add:"></a>2. in package.json add:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"webpack src/js/main.js dist/script.js "</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-use-npx-webpack"><a href="#3-use-npx-webpack" class="headerlink" title="3. use npx webpack"></a>3. use <strong><em>npx webpack</em></strong></h3><h3 id="4-style-import-in-js-files"><a href="#4-style-import-in-js-files" class="headerlink" title="4. style import in .js files:"></a>4. style import in .js files:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./../SASS/style.scss'</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-server"><a href="#5-server" class="headerlink" title="5. server:"></a>5. server:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node_modules/.bin/webpack-dev-server</span><br></pre></td></tr></table></figure>
-
-<p>#</p>
-<p>#</p>
-<p>#</p>
-<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p>install:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack</span><br><span class="line">npm i webpack-cli -g</span><br><span class="line"></span><br><span class="line">npm install style-loader --save-dev</span><br><span class="line">npm install --save-dev css-loader</span><br><span class="line">npm install sass-loader node-sass webpack --save-dev</span><br><span class="line">npm install file-loader --save-dev</span><br><span class="line">npm install -D babel-loader @babel/core @babel/preset-env webpack</span><br><span class="line">npm i -D html-loader</span><br><span class="line">npm install --save-dev html-webpack-plugin</span><br><span class="line">npm install webpack-dev-server --save-dev</span><br></pre></td></tr></table></figure>
-
-<p><strong><em>webpack.config.js</em></strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./src/js/index.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">    filename: <span class="string">'main.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.scss$/</span>,</span><br><span class="line">        use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'sass-loader'</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.(png|jpe?g|gif|svg)$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">'file-loader'</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.m?js$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">          options: &#123;</span><br><span class="line">            presets: [<span class="string">'@babel/preset-env'</span>]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.(html)$/</span>,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: <span class="string">'html-loader'</span>,</span><br><span class="line">          options: &#123;</span><br><span class="line">            attrs: [<span class="string">':data-src'</span>]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      template: <span class="string">'src/index.html'</span>,</span><br><span class="line">      title: <span class="string">'title'</span>,</span><br><span class="line">      filename: <span class="string">'index.html'</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: path.join(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">    compress: <span class="literal">true</span>,</span><br><span class="line">    port: <span class="number">9000</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zoska91.github.io/2019/06/25/webpack/" data-id="cjy66xdl40001n4tnqsosdgp5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/webpack/">webpack</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         
