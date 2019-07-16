@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Notes">
 <meta property="og:description" content="Node - Express.jsNasłuchiwanie serwera12345678910111213const express = require(&apos;express&apos;);const app = express();app.listen(3000, (req, res) =&amp;gt; &amp;#123;  console.log(&apos;Server id listening at http://loc">
 <meta property="og:locale" content="pl">
-<meta property="og:updated_time" content="2019-07-10T19:31:55.018Z">
+<meta property="og:updated_time" content="2019-07-12T16:30:18.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="expressJs">
 <meta name="twitter:description" content="Node - Express.jsNasłuchiwanie serwera12345678910111213const express = require(&apos;express&apos;);const app = express();app.listen(3000, (req, res) =&amp;gt; &amp;#123;  console.log(&apos;Server id listening at http://loc">
@@ -104,6 +104,21 @@
 <li>req.secure</li>
 <li>req.query - pobiera parametry z linku</li>
 <li>req.get - pobiera nagłówki przesłane przez klienta</li>
+<li>req.params</li>
+</ul>
+<h2 id="Metody-res"><a href="#Metody-res" class="headerlink" title="Metody res"></a>Metody res</h2><ul>
+<li>res.write - “drukuje” np. tekst na stronie, przesyła dane na front</li>
+<li>res.end - “kończy połączenie - ładowanie strony</li>
+<li>res.send - zamiast write i end. zmienia nagłówek “content-type”</li>
+<li>res.json - przesyła tylko json</li>
+<li>res.location - przekierowanie (adres http)</li>
+<li>res.redirect - przekierowanie - łatwiejsze i lepsze niż location</li>
+<li>res.sendFile - przesyłanie obrazków</li>
+<li>res.attachment - przesłanie pliku, ale wymusi jego pobranie (sam nie zakończy połączenia. potrzebne res.end)</li>
+<li>res.download</li>
+<li>res.set - ustawienei dowolnych, wewnętrznych nagłóków</li>
+<li>res.cookie - ciasteczka</li>
+<li>res.clearCookie - usuwa ciastka (np do wylogowania)</li>
 </ul>
 <h2 id="parametry-adresu-URL"><a href="#parametry-adresu-URL" class="headerlink" title="parametry adresu URL"></a>parametry adresu URL</h2><p>Pobranie z formularza z HTML i przedłanie na back-end<br>przykład z encodeURIComponent:</p>
 <h3 id="na-froncie-js-html"><a href="#na-froncie-js-html" class="headerlink" title="na froncie (js + html)"></a>na froncie (js + html)</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    Imie: <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"nameInput"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    Naziwsko: <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"surnameInput"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>wygeneruj<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>Jestem linkiem!<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -121,11 +136,58 @@
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app.all(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="comment">//console.log(req.query);   // podstawowa forma, zwraca obiekt</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//destrukturyzacja:</span></span><br><span class="line">  <span class="keyword">const</span> &#123; name, surname &#125; = req.query;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(name, surname);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+<h3 id="sciezki"><a href="#sciezki" class="headerlink" title="ścieżki"></a>ścieżki</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'spis ludności'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/1'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'informacja na temat osoby o id 1'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.post(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'dodanie osoby'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.patch(<span class="string">'/1'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'edytownie osoby o id 1'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.delete(<span class="string">'/1'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'usunięcie osoby o id 1'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="parametry-sciezek"><a href="#parametry-sciezek" class="headerlink" title="parametry ścieżek"></a>parametry ścieżek</h3><p>zmienna po “/:” zostaje przekazana na backend</p>
+<p>zmienna po “/:” + “?” - parametr opcjonalny</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.delete(<span class="string">'/:id/:title?'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'usunięcie osoby o id '</span> + req.params.id);</span><br><span class="line">  <span class="built_in">console</span>.log(req.params);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//resultat: obiekt z ":id" i ":title"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="przekierowanie"><a href="#przekierowanie" class="headerlink" title="przekierowanie"></a>przekierowanie</h2><p>res.location</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.location(<span class="string">'https://google.com'</span>);</span><br><span class="line">  <span class="comment">// res.location('/another.path'); // inny przykład</span></span><br><span class="line">  res.sendStatus(<span class="number">302</span>); <span class="comment">//kody 300 służą to przekierowania</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>res.redirect</p>
+<ul>
+<li>nie trzeba “sendStatus”</li>
+<li>pozwala cofać</li>
+<li>cofa tak jak przycisk cofania w przegladarce - do ostatnia oglądanej strony</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.redirect(<span class="string">'https://google.com'</span>);</span><br><span class="line">  <span class="comment">// res.location('/another.path'); // inny przykład</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//cofanie:</span></span><br><span class="line">app.get(<span class="string">'/home/about/companmy'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.redirect(<span class="string">'..'</span>); <span class="comment">//wróci do /home/about</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//cofanie:</span></span><br><span class="line">app.get(<span class="string">'/home/about/companmy'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.redirect(<span class="string">'back'</span>); <span class="comment">//wróci do /home/about</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="obrazki"><a href="#obrazki" class="headerlink" title="obrazki"></a>obrazki</h2><p>index.html w folderze “static”<br>plik .png w folderze “static”</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> fileName = <span class="string">'index.html'</span>;</span><br><span class="line"></span><br><span class="line">  res.sendFile(fileName, &#123;</span><br><span class="line">    root: path.join(__dirname, <span class="string">'static'</span>)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/logo'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> fileName = <span class="string">'plik.png'</span>;</span><br><span class="line"></span><br><span class="line">  res.sendFile(fileName, &#123;</span><br><span class="line">    root: path.join(__dirname, <span class="string">'static'</span>)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>opcje ciastek:<br>expires - czas do kiedy ciastko będzie zapamiętane</p>
+<ul>
+<li>maxAge - czas życia ciasta</li>
+</ul>
+<p>res.clearCookie - czyści ciasteczka - można użyć do wylogowania</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.send(<span class="string">'strona glowna'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/hi/:name'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; name &#125; = req.params;</span><br><span class="line">  <span class="keyword">const</span> dt = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  dt.setDate(dt.getDate() + <span class="number">7</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//expires</span></span><br><span class="line">  res.cookie(<span class="string">'visitor_name'</span>, name, &#123;</span><br><span class="line">    expires: dt</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//maxAge</span></span><br><span class="line">  res.cookie(<span class="string">'visitor_name'</span>, name, &#123;</span><br><span class="line">    maxAge: <span class="number">5</span> * <span class="number">60</span> * <span class="number">1000</span> <span class="comment">// 5 min * 60 sekund * 1000 milisekund</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  res.send(<span class="string">'hello '</span> + name);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//wylogowanie:</span></span><br><span class="line">app.get(<span class="string">'/logout'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.clearCookie(<span class="string">'visitor_name'</span>);</span><br><span class="line"></span><br><span class="line">  res.redirect(<span class="string">'/'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="middleware"><a href="#middleware" class="headerlink" title="middleware"></a>middleware</h2><p>app.use(jakisMiddleware())</p>
+<h3 id="app-use-json"><a href="#app-use-json" class="headerlink" title="app.use(json())"></a>app.use(json())</h3><ul>
+<li>rozkodowanie pliku we formacuie json</li>
+</ul>
+<p>po jego pobraniu (najlepiej użyć po serwerze - przed ścieżkami) będzie można skorzystać z obiektu body, który będzie w req</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.json());</span><br><span class="line"></span><br><span class="line">app.post(<span class="string">'/hello'</span>, (res, req) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; name, surname &#125; = req.body;</span><br><span class="line">  <span class="built_in">console</span>.log(req.body);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="app-use-express-static-folder-plikow-statycznych"><a href="#app-use-express-static-folder-plikow-statycznych" class="headerlink" title="app.use(express.static(folder_plikow_statycznych))"></a>app.use(express.static(folder_plikow_statycznych))</h3><ul>
+<li>pobiera statyczne pliki z danego folderu</li>
+<li>w html’u trzeba teraz podawać nazwę pliku a nie ścieżkę</li>
+<li>od razu pobiera index.html</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.json());</span><br><span class="line">app.use(express.static&#123;</span><br><span class="line">  path.join(__dirname, <span class="string">'static'</span>),</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.post(<span class="string">'/hello'</span>, (res, req) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; name, surname &#125; = req.body;</span><br><span class="line">  <span class="built_in">console</span>.log(req.body);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="app-use-cookieParser-odczytanie-cookie"><a href="#app-use-cookieParser-odczytanie-cookie" class="headerlink" title="app.use(cookieParser()) - odczytanie cookie"></a>app.use(cookieParser()) - odczytanie cookie</h3><ol>
+<li>instalacja: npm i cookie-parser</li>
+</ol>
+<p>ciastka będą dostępne pod nazwą:<br><strong>res.cookies</strong><br>podpisane ciastka:<br><strong>res.signedCookies</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);</span><br><span class="line">app.use(cookieParser());</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="comment">//odczytanie czy jest cookie</span></span><br><span class="line">  <span class="built_in">console</span>.log(req.cookies);</span><br><span class="line">  <span class="keyword">const</span> &#123; visitor_name &#125; = req.cookies;</span><br><span class="line">  <span class="keyword">if</span> (visitor_name) &#123;</span><br><span class="line">    res.send(<span class="string">`witaj <span class="subst">$&#123;visitor_name&#125;</span>`</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    res.send(<span class="string">'czy my sie znamy?'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  res.send(<span class="string">'strona glowna'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.get(<span class="string">'/hi/:name'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; name &#125; = req.params;</span><br><span class="line"></span><br><span class="line">  res.cookie(<span class="string">'visitor_name'</span>, name, &#123;</span><br><span class="line">    maxAge: <span class="number">5</span> * <span class="number">60</span> * <span class="number">1000</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  res.send(<span class="string">'imie zapisano'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/logout'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.clearCookie(<span class="string">'visitor_name'</span>);</span><br><span class="line">  res.redirect(<span class="string">'./'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zoska91.github.io/2019/07/10/expressJs/" data-id="cjxxn3tud0000rotn3aayvmq7" class="article-share-link">Share</a>
+      <a data-url="https://zoska91.github.io/2019/07/10/expressJs/" data-id="cjy66ug5m0001cctn79ankx7n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/express-node/">express node</a></li></ul>
@@ -135,6 +197,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/notes/2019/07/16/mongodb/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          mongodb
+        
+      </div>
+    </a>
   
   
     <a href="/notes/2019/06/25/webpack/" id="article-nav-older" class="article-nav-link-wrap">
@@ -158,7 +229,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/express-node/">express node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/webpack/">webpack</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/express-node/">express node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/webpack/">webpack</a></li></ul>
     </div>
   </div>
 
@@ -168,7 +239,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/notes/tags/express-node/" style="font-size: 10px;">express node</a> <a href="/notes/tags/webpack/" style="font-size: 10px;">webpack</a>
+      <a href="/notes/tags/express-node/" style="font-size: 10px;">express node</a> <a href="/notes/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/notes/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/notes/tags/webpack/" style="font-size: 10px;">webpack</a>
     </div>
   </div>
 
@@ -188,6 +259,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/notes/2019/07/16/mongodb/">mongodb</a>
+          </li>
         
           <li>
             <a href="/notes/2019/07/10/expressJs/">expressJs</a>
