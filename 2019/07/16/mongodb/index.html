@@ -5,20 +5,20 @@
   
 
   
-  <title>mongodb | Notes</title>
+  <title>Mongo db | Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mongo db1. istalacjapobierz mongoDB-&amp;gt; products -&amp;gt; server mongodb 2. CMD domyślnie:  1234&amp;gt; cd &quot;C:\Program Files\MongoDB\Server\4.0\bin&quot;&amp;gt; mongo&amp;gt; db.cars.insertOne(&amp;#123;brand: &apos;Daewoo&apos;, m">
+  <meta name="description" content="1. istalacjapobierz mongoDB-&amp;gt; products -&amp;gt; server mongodb 2. CMD domyślnie:  1234&amp;gt; cd &quot;C:\Program Files\MongoDB\Server\4.0\bin&quot;&amp;gt; mongo&amp;gt; db.cars.insertOne(&amp;#123;brand: &apos;Daewoo&apos;, model: &apos;L">
 <meta name="keywords" content="nodejs,mongodb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mongodb">
+<meta property="og:title" content="Mongo db">
 <meta property="og:url" content="https://zoska91.github.io/2019/07/16/mongodb/index.html">
 <meta property="og:site_name" content="Notes">
-<meta property="og:description" content="mongo db1. istalacjapobierz mongoDB-&amp;gt; products -&amp;gt; server mongodb 2. CMD domyślnie:  1234&amp;gt; cd &quot;C:\Program Files\MongoDB\Server\4.0\bin&quot;&amp;gt; mongo&amp;gt; db.cars.insertOne(&amp;#123;brand: &apos;Daewoo&apos;, m">
+<meta property="og:description" content="1. istalacjapobierz mongoDB-&amp;gt; products -&amp;gt; server mongodb 2. CMD domyślnie:  1234&amp;gt; cd &quot;C:\Program Files\MongoDB\Server\4.0\bin&quot;&amp;gt; mongo&amp;gt; db.cars.insertOne(&amp;#123;brand: &apos;Daewoo&apos;, model: &apos;L">
 <meta property="og:locale" content="pl">
-<meta property="og:updated_time" content="2019-07-16T19:06:18.592Z">
+<meta property="og:updated_time" content="2019-07-17T18:15:09.828Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mongodb">
-<meta name="twitter:description" content="mongo db1. istalacjapobierz mongoDB-&amp;gt; products -&amp;gt; server mongodb 2. CMD domyślnie:  1234&amp;gt; cd &quot;C:\Program Files\MongoDB\Server\4.0\bin&quot;&amp;gt; mongo&amp;gt; db.cars.insertOne(&amp;#123;brand: &apos;Daewoo&apos;, m">
+<meta name="twitter:title" content="Mongo db">
+<meta name="twitter:description" content="1. istalacjapobierz mongoDB-&amp;gt; products -&amp;gt; server mongodb 2. CMD domyślnie:  1234&amp;gt; cd &quot;C:\Program Files\MongoDB\Server\4.0\bin&quot;&amp;gt; mongo&amp;gt; db.cars.insertOne(&amp;#123;brand: &apos;Daewoo&apos;, model: &apos;L">
   
     <link rel="alternate" href="/notes/atom.xml" title="Notes" type="application/atom+xml">
   
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      mongodb
+      Mongo db
     </h1>
   
 
@@ -91,7 +91,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="mongo-db"><a href="#mongo-db" class="headerlink" title="mongo db"></a>mongo db</h1><h2 id="1-istalacja"><a href="#1-istalacja" class="headerlink" title="1. istalacja"></a>1. istalacja</h2><p><a href="https://www.mongodb.com" target="_blank" rel="noopener">pobierz mongoDB</a><br>-&gt; products -&gt; server mongodb</p>
+        <h2 id="1-istalacja"><a href="#1-istalacja" class="headerlink" title="1. istalacja"></a>1. istalacja</h2><p><a href="https://www.mongodb.com" target="_blank" rel="noopener">pobierz mongoDB</a><br>-&gt; products -&gt; server mongodb</p>
 <h2 id="2-CMD"><a href="#2-CMD" class="headerlink" title="2. CMD"></a>2. CMD</h2><ul>
 <li>domyślnie:</li>
 </ul>
@@ -153,13 +153,35 @@
 <ul>
 <li>można też: deleteMany / deleteOne</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;db.clients.deleteOne(&#123;&quot;_id&quot; : ObjectId(&quot;5d2debb36b9c47ad112082bb&quot;)&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.clients.deleteOne(&#123;&quot;_id&quot; : ObjectId(&quot;5d2debb36b9c47ad112082bb&quot;)&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="mongo-db-w-node"><a href="#mongo-db-w-node" class="headerlink" title="mongo db w node"></a>mongo db w node</h2><h3 id="instalacja"><a href="#instalacja" class="headerlink" title="instalacja"></a>instalacja</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i mongodb</span><br></pre></td></tr></table></figure>
+
+<h3 id="zaimportowanie-mongodb"><a href="#zaimportowanie-mongodb" class="headerlink" title="zaimportowanie mongodb"></a>zaimportowanie mongodb</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongo = <span class="built_in">require</span>(<span class="string">'mongodb'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> client = <span class="keyword">new</span> mongo.MongoClient(<span class="string">'mongodb://localhost:27017'</span>, &#123; <span class="attr">useNewUrlParser</span>: <span class="literal">true</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="wykrycie-polaczenia-i-zakonczenie"><a href="#wykrycie-polaczenia-i-zakonczenie" class="headerlink" title="wykrycie połączenia i zakończenie"></a>wykrycie połączenia i zakończenie</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">client.connect(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//sprawdzenie czy połączenie zostało nawiązane</span></span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'blad'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'polaczono!'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    <span class="comment">//zakończenie połączenia</span></span><br><span class="line">    client.close()</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="pobranie-bazy-i-kolekcji"><a href="#pobranie-bazy-i-kolekcji" class="headerlink" title="pobranie bazy i kolekcji"></a>pobranie bazy i kolekcji</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//pobranie bazy danych</span></span><br><span class="line"><span class="keyword">const</span> db = client.db(<span class="string">'test'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// pobranie kolekcji</span></span><br><span class="line"><span class="keyword">const</span> clients = db.collection(<span class="string">'clients'</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Dodanie-dokumentu"><a href="#Dodanie-dokumentu" class="headerlink" title="Dodanie dokumentu"></a>Dodanie dokumentu</h3><p><em>insertOne()</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clients.insertOne(&#123;</span><br><span class="line">  brand: <span class="string">'Infiniti'</span>,</span><br><span class="line">  model: <span class="string">'Q50'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Usuwanie-dokumentu"><a href="#Usuwanie-dokumentu" class="headerlink" title="Usuwanie dokumentu"></a>Usuwanie dokumentu</h3><p><em>deletetOne()</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clients.deleteOne(&#123; <span class="attr">_id</span>: mongo.ObjectID(<span class="string">'5d2f2f329499161dacdf9852'</span>) &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="znajdowanie-dokumentu"><a href="#znajdowanie-dokumentu" class="headerlink" title="znajdowanie dokumentu"></a>znajdowanie dokumentu</h3><p><em>find()</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">clients.find(&#123;&#125;).toArray(<span class="function">(<span class="params">err, clientsList</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'błędne zapytanie!'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Klienci:'</span>, clientsList);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="znajdowanie-dokumentu-1"><a href="#znajdowanie-dokumentu-1" class="headerlink" title="znajdowanie dokumentu"></a>znajdowanie dokumentu</h3><p><em>update()</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">clients.updateMany(</span><br><span class="line">  &#123;</span><br><span class="line">    age: &#123;</span><br><span class="line">      $gt: <span class="number">18</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    $<span class="keyword">set</span>: &#123;</span><br><span class="line">      active: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="przyklad"><a href="#przyklad" class="headerlink" title="przykład:"></a>przykład:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongo = <span class="built_in">require</span>(<span class="string">'mongodb'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> client = <span class="keyword">new</span> mongo.MongoClient(<span class="string">'mongodb://localhost:27017'</span>, &#123; <span class="attr">useNewUrlParser</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line">client.connect(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//sprawdzenie czy połączenie zostało nawiązane</span></span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'blad'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'polaczono!'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//pobranie bazy danych</span></span><br><span class="line">    <span class="keyword">const</span> db = client.db(<span class="string">'test'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// pobranie kolekcji</span></span><br><span class="line">    <span class="keyword">const</span> clients = db.collection(<span class="string">'clients'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//dodawnie</span></span><br><span class="line">    clients.insertOne(&#123;</span><br><span class="line">      brand: <span class="string">'Infiniti'</span>,</span><br><span class="line">      model: <span class="string">'Q50'</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// usuwanie</span></span><br><span class="line">    clients.deleteOne(&#123; <span class="attr">_id</span>: mongo.ObjectID(<span class="string">'5d2f2f329499161dacdf9852'</span>) &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//znajdowanie</span></span><br><span class="line">    clients.find(&#123;&#125;).toArray(<span class="function">(<span class="params">err, clientsList</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'błędne zapytanie!'</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Klienci:'</span>, clientsList);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    clients.updateMany(</span><br><span class="line">      &#123;</span><br><span class="line">        age: &#123;</span><br><span class="line">          $gt: <span class="number">18</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        $<span class="keyword">set</span>: &#123;</span><br><span class="line">          active: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">//zakończenie połączenia</span></span><br><span class="line">    client.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zoska91.github.io/2019/07/16/mongodb/" data-id="cjy66xdlb0003n4tnjly3mpp1" class="article-share-link">Share</a>
+      <a data-url="https://zoska91.github.io/2019/07/16/mongodb/" data-id="cjy7kh03v0005aktnq3afmmkk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/nodejs/">nodejs</a></li></ul>
@@ -173,7 +195,7 @@
   
     <a href="/notes/2019/07/10/expressJs/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">expressJs</div>
+      <div class="article-nav-title">ExpressJs</div>
     </a>
   
 </nav>
@@ -224,11 +246,11 @@
       <ul>
         
           <li>
-            <a href="/notes/2019/07/16/mongodb/">mongodb</a>
+            <a href="/notes/2019/07/16/mongodb/">Mongo db</a>
           </li>
         
           <li>
-            <a href="/notes/2019/07/10/expressJs/">expressJs</a>
+            <a href="/notes/2019/07/10/expressJs/">ExpressJs</a>
           </li>
         
           <li>

@@ -5,20 +5,20 @@
   
 
   
-  <title>expressJs | Notes</title>
+  <title>ExpressJs | Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Node - Express.jsNasłuchiwanie serwera12345678910111213const express = require(&apos;express&apos;);const app = express();app.listen(3000, (req, res) =&amp;gt; &amp;#123;  console.log(&apos;Server id listening at http://loc">
+  <meta name="description" content="Nasłuchiwanie serwera12345678910111213const express = require(&apos;express&apos;);const app = express();app.listen(3000, (req, res) =&amp;gt; &amp;#123;  console.log(&apos;Server id listening at http://localhost:3000&apos;);&amp;#1">
 <meta name="keywords" content="express,nodejs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="expressJs">
+<meta property="og:title" content="ExpressJs">
 <meta property="og:url" content="https://zoska91.github.io/2019/07/10/expressJs/index.html">
 <meta property="og:site_name" content="Notes">
-<meta property="og:description" content="Node - Express.jsNasłuchiwanie serwera12345678910111213const express = require(&apos;express&apos;);const app = express();app.listen(3000, (req, res) =&amp;gt; &amp;#123;  console.log(&apos;Server id listening at http://loc">
+<meta property="og:description" content="Nasłuchiwanie serwera12345678910111213const express = require(&apos;express&apos;);const app = express();app.listen(3000, (req, res) =&amp;gt; &amp;#123;  console.log(&apos;Server id listening at http://localhost:3000&apos;);&amp;#1">
 <meta property="og:locale" content="pl">
-<meta property="og:updated_time" content="2019-07-16T19:09:01.889Z">
+<meta property="og:updated_time" content="2019-07-17T18:15:23.559Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="expressJs">
-<meta name="twitter:description" content="Node - Express.jsNasłuchiwanie serwera12345678910111213const express = require(&apos;express&apos;);const app = express();app.listen(3000, (req, res) =&amp;gt; &amp;#123;  console.log(&apos;Server id listening at http://loc">
+<meta name="twitter:title" content="ExpressJs">
+<meta name="twitter:description" content="Nasłuchiwanie serwera12345678910111213const express = require(&apos;express&apos;);const app = express();app.listen(3000, (req, res) =&amp;gt; &amp;#123;  console.log(&apos;Server id listening at http://localhost:3000&apos;);&amp;#1">
   
     <link rel="alternate" href="/notes/atom.xml" title="Notes" type="application/atom+xml">
   
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      expressJs
+      ExpressJs
     </h1>
   
 
@@ -91,7 +91,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Node-Express-js"><a href="#Node-Express-js" class="headerlink" title="Node - Express.js"></a>Node - Express.js</h1><h2 id="Nasluchiwanie-serwera"><a href="#Nasluchiwanie-serwera" class="headerlink" title="Nasłuchiwanie serwera"></a>Nasłuchiwanie serwera</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Server id listening at http://localhost:3000'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//na stronie głownej - "/" wyświetli się</span></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hello'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        <h2 id="Nasluchiwanie-serwera"><a href="#Nasluchiwanie-serwera" class="headerlink" title="Nasłuchiwanie serwera"></a>Nasłuchiwanie serwera</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Server id listening at http://localhost:3000'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//na stronie głownej - "/" wyświetli się</span></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hello'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="Medoty-req"><a href="#Medoty-req" class="headerlink" title="Medoty req"></a>Medoty req</h2><ul>
 <li>req.ip - sprawdzenie mojego ip</li>
@@ -187,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zoska91.github.io/2019/07/10/expressJs/" data-id="cjy66xdkt0000n4tnkh4x1nw1" class="article-share-link">Share</a>
+      <a data-url="https://zoska91.github.io/2019/07/10/expressJs/" data-id="cjy7kh0390000aktnqvys9th1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/express/">express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/nodejs/">nodejs</a></li></ul>
@@ -202,7 +202,7 @@
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          mongodb
+          Mongo db
         
       </div>
     </a>
@@ -261,11 +261,11 @@
       <ul>
         
           <li>
-            <a href="/notes/2019/07/16/mongodb/">mongodb</a>
+            <a href="/notes/2019/07/16/mongodb/">Mongo db</a>
           </li>
         
           <li>
-            <a href="/notes/2019/07/10/expressJs/">expressJs</a>
+            <a href="/notes/2019/07/10/expressJs/">ExpressJs</a>
           </li>
         
           <li>
